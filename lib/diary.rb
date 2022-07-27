@@ -22,4 +22,29 @@ class Diary
   def list_entry
     @entry
   end
+
+  def completed
+    @todo.each.select do |todo|
+       todo.completed? == true
+    end
+  end
+
+  def reading_time(wpm, minutes)
+    total = wpm * minutes
+    entries = []
+
+    # count_words = 2 
+    # total = 2 
+
+    @entry.each.select do |i|
+        if i.count_words <= total
+            entries << i
+        end
+    end
+
+    # entries = "hello brijesh"
+    entries
+
+
+  end
 end
